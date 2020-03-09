@@ -1,0 +1,93 @@
+.header
+    background-color: #3853d8
+    &-navbar        
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &-logo
+            width: 15%
+        &-menu
+            width: 65%
+            &-navigation
+                width: 70%
+                display: flex
+                justify-content: space-between
+                align-items: center
+                &__item
+                    a
+                        color: #fff
+                        text-transform: uppercase
+                        font-size: 12px
+                        letter-spacing: 0.9px
+        &-controls
+            width: 20%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            &__item
+                position: relative
+                color: #fff
+                text-transform: uppercase
+                font-size: 12px
+                letter-spacing: 0.3px
+                &-counter
+                    position: absolute
+                    top: 13px
+                    right: -4px
+                    height: 19px
+                    width: 19px
+                    border-radius: 50%
+                    font-weight: 700
+                    font-size: 10px                                      
+                    background: #fff
+                    color: #3853d8
+                    display: flex
+                    justify-content: center
+                    align-items: center
+    &-main
+        height: 650px
+        &-carousel
+            &__item
+                position: relative
+                height: 650px
+                &-cover
+                    max-height: 100%
+                    max-width: 447px
+                span
+                    position: absolute
+                    font-size: 150px
+                    font-weight: 700
+                    text-transform: uppercase
+                    font-family: "Playfair Display"
+                    color: #0021c4
+                    z-index: -1
+                    top: 84px
+                    right: 211px
+                h1
+                    position: absolute
+                    font-size: 72px
+                    font-weight: 700
+                    text-transform: uppercase
+                    font-family: "Playfair Display"
+                    color: #fff
+                    top: 181px
+                    right: 340px
+                a
+                    position: absolute
+                    top: 337px
+                    right: 485px
+                    padding: 18px 45px
+                    background-color: #3853d8
+                    border-radius: 25px
+                    color: #ffffff
+                    letter-spacing: 3.6px
+                    font-size: 18px
+                    text-transform: uppercase
+
+        .carousel .slide
+            background: none
+        .carousel.carousel-slider .control-arrow:hover
+            background: none
+
+        .carousel .control-arrow:before, 
+        .carousel .carousel-slider .control-arrow:before
