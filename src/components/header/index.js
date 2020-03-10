@@ -49,12 +49,12 @@ const Header = () => {
                             slidesToShow={1}
                             slidesToScroll={1}                            
                             prevArrow={
-                                <button class="banner-carousel-prev" aria-label="Previous" type="button">
+                                <button className="banner-carousel-prev" aria-label="Previous" type="button">
                                     <img src={PrevArrow} alt="prev"/>
                                 </button>
                             }
                             nextArrow={
-                                <button class="banner-carousel-prev" aria-label="Previous" type="button">
+                                <button className="banner-carousel-prev" aria-label="Previous" type="button">
                                     <img src={NextArrow} alt="next"/>
                                 </button>
                             }>
