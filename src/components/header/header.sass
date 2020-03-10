@@ -1,9 +1,10 @@
-.header
+.header    
     background-color: #3853d8
     &-navbar        
         display: flex
         justify-content: space-between
         align-items: center
+        padding-top: 36px        
         &-logo
             width: 15%
         &-menu
@@ -50,9 +51,14 @@
             &__item
                 position: relative
                 height: 650px
+                display: flex !important
+                flex-direction: column
+                align-items: center
+                outline: none
+                overflow: hidden
                 &-cover
-                    max-height: 100%
-                    max-width: 447px
+                    max-height: 760px
+                    max-width: 557px
                 span
                     position: absolute
                     font-size: 150px
@@ -61,22 +67,23 @@
                     font-family: "Playfair Display"
                     color: #0021c4
                     z-index: -1
-                    top: 84px
-                    right: 211px
+                    top: 122px
+                    right: 241px
+                    letter-spacing: 6px
+                    
                 h1
                     position: absolute
                     font-size: 72px
                     font-weight: 700
-                    text-transform: uppercase
                     font-family: "Playfair Display"
                     color: #fff
-                    top: 181px
-                    right: 340px
+                    top: 246px
+                    right: 401px
                 a
                     position: absolute
-                    top: 337px
+                    top: 401px
                     right: 485px
-                    padding: 18px 45px
+                    padding: 15px 35px
                     background-color: #3853d8
                     border-radius: 25px
                     color: #ffffff
@@ -91,3 +98,7 @@
 
         .carousel .control-arrow:before, 
         .carousel .carousel-slider .control-arrow:before
+
+        .slick-next:before, 
+        .slick-prev:before
+            display: none

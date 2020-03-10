@@ -1,14 +1,13 @@
 
 import React, { Component } from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import Slider from 'react-slick';
  
-export default class HeaderCarousel extends Component {
+export default class Carousel extends Component {
     render() {
         return (
-            <Carousel {... this.props}>
+            <Slider {... this.props}>
                 {this.props.children}
-            </Carousel>
+            </Slider>
         );
     }
 };

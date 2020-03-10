@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Logo, Cart, Search, PrevArrow, NextArrow} from '../svg';
 import Girl from './img/girl.png';
-import HeaderCarousel from '../carousel';
+import Carousel from '../carousel';
 
 import './header.sass';
 
@@ -43,13 +43,21 @@ const Header = () => {
 
                 <div className="header-main">
                     <div className="header-main-carousel">
-                        <HeaderCarousel
-                            showArrows={true} 
-                            showThumbs={false}
-                            showStatus={false}
-                            showIndicators={false}
-                            infiniteLoop={true}
-                        >
+                        <Carousel
+                            dots={false}
+                            infinite={true}
+                            slidesToShow={1}
+                            slidesToScroll={1}                            
+                            prevArrow={
+                                <button class="banner-carousel-prev" aria-label="Previous" type="button">
+                                    <img src={PrevArrow} alt="prev"/>
+                                </button>
+                            }
+                            nextArrow={
+                                <button class="banner-carousel-prev" aria-label="Previous" type="button">
+                                    <img src={NextArrow} alt="next"/>
+                                </button>
+                            }>
                             <div className="header-main-carousel__item">
                                 <span>Fashion</span>
                                 <img className="header-main-carousel__item-cover" src={Girl} alt="girl"/>
@@ -62,7 +70,7 @@ const Header = () => {
                                 <h1>New Arrival</h1>
                                 <a href="#">Buy Now</a>
                             </div>
-                        </HeaderCarousel>
+                        </Carousel>
                     </div>                    
                 </div>
             </div>
