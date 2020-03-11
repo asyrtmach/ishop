@@ -3,8 +3,9 @@ class ProductsService{
         return items.slice(0,10);
     }
 
-    loadMore = (Goods, items) => {
-        return Goods.slice(items.length,4);
+    loadMore = (mainArr, arr) => {
+        const arrLength = arr.length;        
+        return mainArr.slice(arrLength,arrLength+4);
     }
 }
 

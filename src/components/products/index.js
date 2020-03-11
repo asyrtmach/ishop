@@ -22,6 +22,13 @@ export default class Products extends Component {
         )
     }
 
+    newItems(mainArr, arr){
+        const newElems = this.productsService.loadMore(mainArr, arr);
+        const newArr = [...arr, ...newElems];        
+        this.setState({
+            items: newArr
+        })
+    }
 
 
     render() {
@@ -74,9 +81,9 @@ export default class Products extends Component {
                                     <div className="products-showcase__item-description">
                                         <span className="products-showcase__item-description-title">{item.text}</span>
                                         <div className="products-showcase__item-description-prices">
-                                            <span className={item.sale ? `products-showcase__item-description-prices-old products-showcase__item-description-prices-old-crossed` : `products-showcase__item-description-prices-old`}>{`$${parseInt(item.price)} USD`}</span>
+                                            <span className={item.sale ? `products-showcase__item-description-prices-old products-showcase__item-description-prices-old-crossed` : `products-showcase__item-description-prices-old`}>{`$${parseInt(item.price)/10} USD`}</span>
                                             {
-                                                item.sale ? <span className="products-showcase__item-description-prices-actual">{`$${parseInt(item.price) - (parseInt(item.price)*0.2)} USD`}</span> : null
+                                                item.sale ? <span className="products-showcase__item-description-prices-actual">{`$${(parseInt(item.price) - (parseInt(item.price)*0.2))/10} USD`}</span> : null
                                             }                                                                                     
                                         </div>
                                     </div>
@@ -85,7 +92,11 @@ export default class Products extends Component {
                         })
                     }
                     </div>
-                    
+                    <button
+                    onClick={() => this.newItems(Goods, items)}
+                    >
+                        load more
+                    </button>
                 </div>
             </section>
         )
