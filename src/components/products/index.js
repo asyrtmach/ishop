@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import {NextArrow, Fire} from '../svg';
+import RoundArrows from '../features/svg/ui.svg';
 import Pic from './img/pic.png';
 import Goods from '../../services/items.json';
 import ProductsService from '../../services/productsService.js';
@@ -92,11 +93,15 @@ export default class Products extends Component {
                         })
                     }
                     </div>
-                    <button
-                    onClick={() => this.newItems(Goods, items)}
-                    >
-                        load more
-                    </button>
+                    <div className="products-footer">
+                        <button
+                        className="products-footer-btn"
+                        onClick={() => this.newItems(Goods, items)}
+                        >
+                            <img src={RoundArrows} alt="RoundArrows"/>
+                            load more
+                        </button>
+                    </div>
                 </div>
             </section>
         )

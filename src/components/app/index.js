@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../header';
 import Features from '../features';
 import Products from '../products';
+import Events from '../events';
+import Novelties from '../novelties';
 import ContextWrapper from '../contextWrapper';
 
 
@@ -14,6 +16,8 @@ const App = () => {
             <Header/>
             <Features/>
             <Products/>
+            <Events/>
+            <Novelties/>
         </ContextWrapper>
     )
 }
