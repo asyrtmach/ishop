@@ -5,6 +5,7 @@ import Features from '../features';
 import Products from '../products';
 import Events from '../events';
 import Novelties from '../novelties';
+import Popular from '../popular';
 import ContextWrapper from '../contextWrapper';
 
 
@@ -18,6 +19,7 @@ const App = () => {
             <Products/>
             <Events/>
             <Novelties/>
+            <Popular/>
         </ContextWrapper>
     )
 }
