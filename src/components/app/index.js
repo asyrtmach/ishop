@@ -6,6 +6,8 @@ import Products from '../products';
 import Events from '../events';
 import Novelties from '../novelties';
 import Popular from '../popular';
+import Brands from '../brands';
+import Footer from '../footer';
 import ContextWrapper from '../contextWrapper';
 
 
@@ -20,6 +22,8 @@ const App = () => {
             <Events/>
             <Novelties/>
             <Popular/>
+            <Brands/>
+            <Footer/>
         </ContextWrapper>
     )
 }
