@@ -41,9 +41,9 @@ export default class Features extends Component {
                 <div className="container">
                     <div className="features-items">
                         {
-                            items.map(item => {
+                            items.map((item,index) => {
                                 return (
-                                    <div className="features__item">
+                                    <div className="features__item" key={index}>
                                         <div className="left-side">
                                             <img src={item.img} alt="Feature-icon"/>
                                         </div>

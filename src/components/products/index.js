@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 import {NextArrow, Fire} from '../svg';
 import RoundArrows from '../features/svg/ui.svg';
 import Pic from './img/pic.png';
 import Goods from '../../services/items.json';
 import ProductsService from '../../services/productsService.js';
+
+
 
 import './products.sass';
 
@@ -46,10 +49,10 @@ export default class Products extends Component {
                                     <div className="products-showcase__item products-showcase__item--popular" key={index}>
                                         <img src={Fire} alt="fire"/>
                                         <h4 className="products-showcase__item--popular-title">Popular Product</h4>
-                                        <a href="#" className="products-showcase__item--popular-more">
+                                        <Link to='/catalog' className="products-showcase__item--popular-more">
                                             More Product
                                             <img src={NextArrow} alt="next"/>
-                                        </a>
+                                        </Link>
                                     </div>
                                 )
                             }
@@ -60,10 +63,10 @@ export default class Products extends Component {
                                             <span className="products-showcase__item--banner-newicon">New</span>
                                             <span className="products-showcase__item--banner-type">lifestyle</span>
                                             <span className="products-showcase__item--banner-nameplate">lifestyle New Now: Striped cotton</span>
-                                            <a href="#" className="products-showcase__item--banner-buynow">
+                                            <Link to="/detail" className="products-showcase__item--banner-buynow">
                                                 <span className="products-showcase__item--banner-buynow-price">$50.00 USD</span>
                                                 <span className="products-showcase__item--banner-buynow-text">buy now</span>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div className="right-side">
                                             <img src={Pic} alt="pic"/>

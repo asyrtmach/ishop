@@ -42,9 +42,9 @@ export default class Brands extends Component {
                                 </button>
                             }>                  
                             {
-                                items.map(item => {
+                                items.map((item, index) => {
                                     return(
-                                        <div className="brands-carousel__item">
+                                        <div className="brands-carousel__item" key={index}>
                                             <a href="#" className="brands-carousel__item-link">
                                                 <img src={item} alt="logo" className="brands-carousel__item-link-img"/>
                                             </a>

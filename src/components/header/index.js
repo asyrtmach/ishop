@@ -54,7 +54,7 @@ const Header = () => {
                                 </button>
                             }
                             nextArrow={
-                                <button className="banner-carousel-prev" aria-label="Previous" type="button">
+                                <button className="banner-carousel-next" aria-label="Next" type="button">
                                     <img src={NextArrow} alt="next"/>
                                 </button>
                             }>

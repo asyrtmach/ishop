@@ -1,30 +1,20 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-import Header from '../header';
-import Features from '../features';
-import Products from '../products';
-import Events from '../events';
-import Novelties from '../novelties';
-import Popular from '../popular';
-import Brands from '../brands';
-import Footer from '../footer';
-import ContextWrapper from '../contextWrapper';
-
+// pages
+import HomePage from '../../pages/home';
+import CatalogPage from '../../pages/catalog';
+import DetailsPage from '../../pages/details';
 
 import './app.sass';
 
 const App = () => {
     return(
-        <ContextWrapper>
-            <Header/>
-            <Features/>
-            <Products/>
-            <Events/>
-            <Novelties/>
-            <Popular/>
-            <Brands/>
-            <Footer/>
-        </ContextWrapper>
+        <Router>
+            <Route path="/" component={HomePage} exact/>
+            <Route path="/catalog" component={CatalogPage} exact/>
+            <Route path="/detail" component={DetailsPage} exact/>
+        </Router>
     )
 }
 
