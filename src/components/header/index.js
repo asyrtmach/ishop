@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {Logo, Cart, Search, PrevArrow, NextArrow} from '../svg';
+import {Logo, CartIcon, Search, PrevArrow, NextArrow} from '../svg';
 import Girl from './img/girl.png';
 import Carousel from '../carousel';
+import Cart from '../cart/';
 
 import './header.sass';
 
@@ -31,9 +32,9 @@ const Header = () => {
                     <div className="header-navbar-controls">
                         <a href="#" className="header-navbar-controls__item">Log in</a>
                         <a href="#" className="header-navbar-controls__item">Sign in</a>
-                        <a href="#" className="header-navbar-controls__item">
-                            <img src={Cart} alt="Cart"/>
-                            <span className="header-navbar-controls__item-counter">2</span>
+                        <a className="header-navbar-controls__item">
+                            <Cart
+                            img={CartIcon}/>
                         </a>
                         <a href="#" className="header-navbar-controls__item">
                             <img src={Search} alt="Search"/>
