@@ -1,5 +1,5 @@
 .cart-modal
-    display: none
+    // display: none
     position: absolute
     right: 0
     z-index: 9999
@@ -56,6 +56,8 @@
                     &-sum
                     &-delete
                         cursor: pointer
+                &:last-child
+                    border: none
         &-footer
             width: 100%
             margin-top: 20px
@@ -68,8 +70,10 @@
                 justify-content: space-between
                 &-items                    
                     &-count
+                        font-weight: bold
                         margin-left: 10px
                 &-sum                    
                     &-amount
+                        font-weight: bold
                         margin-left: 10px
                         
