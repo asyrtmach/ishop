@@ -4,30 +4,31 @@ import {Link} from 'react-router-dom';
 import {NextArrow, Fire} from '../svg';
 import RoundArrows from '../features/svg/ui.svg';
 import Pic from './img/pic.png';
-import Goods from '../../services/items.json';
-import ProductsService from '../../services/productsService.js';
+import {compose, withProductsService} from '../HOC-helpers';
 
 
 
 import './products.sass';
 
-export default class Products extends Component {
+class Products extends Component {
 
-    productsService = new ProductsService();
 
     state = {
         items: []
     }
+
+
+
     componentDidMount(){
         this.setState(
             {
-                items: this.productsService.initialLoad(Goods)
+                items: this.props.getData.initialLoad()
             }
         )
     }
 
-    newItems(mainArr, arr){
-        const newElems = this.productsService.loadMore(mainArr, arr);
+    newItems(arr){
+        const newElems = this.props.getData.loadMore(arr);
         const newArr = [...arr, ...newElems];        
         this.setState({
             items: newArr
@@ -99,7 +100,7 @@ export default class Products extends Component {
                     <div className="products-footer">
                         <button
                         className="products-footer-btn"
-                        onClick={() => this.newItems(Goods, items)}
+                        onClick={() => this.newItems(items)}
                         >
                             <img src={RoundArrows} alt="RoundArrows"/>
                             load more
@@ -110,3 +111,14 @@ export default class Products extends Component {
         )
     }
 }
+
+
+const MapProductsMethodsToProps = (productsService) => {
+    return {
+        getData: productsService
+    }
+}
+
+export default compose(
+    withProductsService(
+        MapProductsMethodsToProps)(Products))

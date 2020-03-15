@@ -8,13 +8,13 @@ import Novelties from '../../components/novelties';
 import Popular from '../../components/popular';
 import Brands from '../../components/brands';
 import Footer from '../../components/footer';
-import ContextWrapper from '../../components/contextWrapper';
+import ErrorBoundry from '../../components/errorBoundry';
 
 
 export default class HomePage extends Component {
     render() {
         return (
-        <ContextWrapper>
+        <ErrorBoundry>
             <Header/>
             <Features/>
             <Products/>
@@ -23,7 +23,7 @@ export default class HomePage extends Component {
             <Popular/>
             <Brands/>
             <Footer/>
-        </ContextWrapper>
+        </ErrorBoundry>
         )
     }
 }

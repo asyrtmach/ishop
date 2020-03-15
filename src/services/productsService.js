@@ -1,11 +1,14 @@
-class ProductsService{   
-    initialLoad = (items) => {
-        return items.slice(0,10);
+import Goods from './items.json';
+
+class ProductsService{
+
+    initialLoad = () => {
+        return Goods.slice(0,10);
     }
 
-    loadMore = (mainArr, arr) => {
+    loadMore = (arr) => {
         const arrLength = arr.length;        
-        return mainArr.slice(arrLength,arrLength+4);
+        return Goods.slice(arrLength,arrLength+4);
     }
 }
 
