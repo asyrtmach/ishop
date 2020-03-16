@@ -6,8 +6,7 @@ import './cartModal.sass'
 
 class CartModal extends Component { 
     render() {
-        const {items, onAddItem, onRemoveItem, FullCount, FullSum} = this.props;
-        console.log(items)
+        const {items, onAddItem, onRemoveItem, FullCount, onDeleteItem, FullSum} = this.props;       
         return (
             <div className="cart-modal">
                 <div className="cart-modal-content">
@@ -17,15 +16,18 @@ class CartModal extends Component {
                     <div className="cart-modal-content-body">
 
                         {
-                            items.map((item, index) => {
+                            items.length === 0 ? <span className="cart-modal-content-body__item">Ваша корзина пуста</span> : (
+                                items.map((item, index) => {
                                 return(
                                     <CartModalItem
                                     {...this.props.items[index]}
                                     onAddItem={onAddItem}
-                                    onRemoveItem={onRemoveItem}                                    
+                                    onRemoveItem={onRemoveItem}
+                                    onDeleteItem={onDeleteItem}                                    
                                     id={index}/>
                                 )
                             })
+                            )
                         }
 
                     </div>

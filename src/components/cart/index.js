@@ -49,6 +49,14 @@ class Cart extends Component {
         return null
     }
 
+    deleteItemHandle = (id) => {
+        const arr = this.state.items;
+        arr.splice(id, 1);
+        this.setState({
+            items:arr
+        })
+    }
+
     fullCount = (arr) => {
         if(arr){
             let fullCount = 0;
@@ -85,6 +93,7 @@ class Cart extends Component {
                 items={items}
                 onAddItem={this.addItemHandle}
                 onRemoveItem={this.removeItemHandle}
+                onDeleteItem={this.deleteItemHandle}
                 FullCount={this.fullCount}
                 FullSum={this.fullSum}
                 />
