@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class CartModalItem extends Component {
     render() {
-        const {img, text, type, price, popular, banner, sale, count, onAddItem, onRemoveItem, onDeleteItem, id} = this.props;        
+        const {item:{img, text, type, price, popular, banner, sale, count, id}, onAddItem, onRemoveItem, onDeleteItem} = this.props;        
         return (
             <div className="cart-modal-content-body__item" key={id}>
                 <div className="cart-modal-content-body__item-cover">

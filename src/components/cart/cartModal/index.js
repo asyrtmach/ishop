@@ -20,11 +20,11 @@ class CartModal extends Component {
                                 items.map((item, index) => {
                                 return(
                                     <CartModalItem
-                                    {...this.props.items[index]}
+                                    item={item}
                                     onAddItem={onAddItem}
                                     onRemoveItem={onRemoveItem}
                                     onDeleteItem={onDeleteItem}                                    
-                                    id={index}/>
+                                    />
                                 )
                             })
                             )

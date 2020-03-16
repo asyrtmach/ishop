@@ -47,7 +47,20 @@ const reducer = (state = initialState, action) => {
               "sale": item.sale,
               "count": "1"
           };
-          console.log(newItem)
+          if(state.cartItems.find((item) => item.id === itemId)){
+            let newArr = state.cartItems;
+            let existingItem = state.cartItems.find((item) => item.id === itemId);
+            newArr[newArr.indexOf(existingItem)] = {
+              ...existingItem,
+              "count": +existingItem.count + 1
+            }
+            return {
+              ...state,
+              cartItems: [
+                ...newArr
+              ]
+            };
+          }
           return {
             ...state,
             cartItems: [
@@ -55,6 +68,7 @@ const reducer = (state = initialState, action) => {
               newItem
             ]
           };
+          
     
         default:
           return state;      
