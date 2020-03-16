@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
+import {fetchItems, itemAddedToCart} from '../../redux/actions/cartActions.js';
+
 import {NextArrow, Fire} from '../svg';
 import RoundArrows from '../features/svg/ui.svg';
 import Pic from './img/pic.png';
@@ -12,33 +16,12 @@ import './products.sass';
 
 class Products extends Component {
 
-
-    state = {
-        items: []
-    }
-
-
-
     componentDidMount(){
-        this.setState(
-            {
-                items: this.props.getData.initialLoad()
-            }
-        )
+        this.props.fetchItems();
     }
-
-    newItems(arr){
-        const newElems = this.props.getData.loadMore(arr);
-        const newArr = [...arr, ...newElems];        
-        this.setState({
-            items: newArr
-        })
-    }
-
 
     render() {
-        const {items} = this.state;
-        
+               const {items, loading, error, onAddedToCart } = this.props;
         return (
             <section className="products">
                 <div className="container">
@@ -47,7 +30,7 @@ class Products extends Component {
                         items.map((item,index) => {
                             if(item.popular){
                                 return (
-                                    <div className="products-showcase__item products-showcase__item--popular" key={index}>
+                                    <div className="products-showcase__item products-showcase__item--popular" key={item.id}>
                                         <img src={Fire} alt="fire"/>
                                         <h4 className="products-showcase__item--popular-title">Popular Product</h4>
                                         <Link to='/catalog' className="products-showcase__item--popular-more">
@@ -59,7 +42,7 @@ class Products extends Component {
                             }
                             if(item.banner){
                                 return (
-                                    <div className="products-showcase__item products-showcase__item--banner" key={index}>
+                                    <div className="products-showcase__item products-showcase__item--banner" key={item.id}>
                                         <div className="left-side">
                                             <span className="products-showcase__item--banner-newicon">New</span>
                                             <span className="products-showcase__item--banner-type">lifestyle</span>
@@ -76,7 +59,7 @@ class Products extends Component {
                                 )
                             }
                             return (
-                                <div className="products-showcase__item" key={index}> 
+                                <div className="products-showcase__item" key={item.id}> 
                                     <div className="products-showcase__item-img">
                                         {
                                             item.sale ? <span className="products-showcase__item-img-saleicon">sale</span> : null
@@ -95,7 +78,9 @@ class Products extends Component {
                                     <div className="products-showcase__item-cover">
                                         <div className="products-showcase__item-cover-filter"></div>
                                         <div className="products-showcase__item-cover-controls">
-                                            <button className="products-showcase__item-cover-controls-btn">Add to cart</button>
+                                            <button 
+                                            onClick={() => onAddedToCart(item.id)}
+                                            className="products-showcase__item-cover-controls-btn">Add to cart</button>
                                             <button className="products-showcase__item-cover-controls-btn">Details</button>
                                         </div>
                                     </div>
@@ -120,12 +105,18 @@ class Products extends Component {
 }
 
 
-const MapProductsMethodsToProps = (productsService) => {
+const mapStateToProps = ({ items, loading, error }) => {
+    return { items, loading, error };
+  };
+
+
+const mapDispatchToProps = (dispatch, { productsService }) => {
     return {
-        getData: productsService
-    }
-}
+      fetchItems: fetchItems(productsService, dispatch),
+      onAddedToCart: (id) => dispatch(itemAddedToCart(id))
+    };
+  }; 
 
 export default compose(
-    withProductsService(
-        MapProductsMethodsToProps)(Products))
+    withProductsService(),
+    connect(mapStateToProps, mapDispatchToProps))(Products);

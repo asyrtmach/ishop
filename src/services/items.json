@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "img": "",
         "text": "",
         "type": "",
@@ -9,6 +10,7 @@
         "sale": false
     },
     {
+        "id": 2,
         "img": "https://storage.vsemayki.ru/images/0/1/1956/1956741/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "BRAWL STARS LEON",
         "type": "Детская футболка 3D",
@@ -19,6 +21,7 @@
         
     },
     {
+        "id": 3,
         "img": "https://storage.vsemayki.ru/images/0/1/1960/1960261/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "BRAWL STARS LEON SHARK",
         "type": "Детская футболка 3D",
@@ -28,6 +31,7 @@
         "sale": false
     },
     {
+        "id": 4,
         "img": "https://storage.vsemayki.ru/images/0/1/1979/1979013/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "BRAWL STARS",
         "type": "Детская футболка 3D",
@@ -37,6 +41,7 @@
         "sale": false
     },
     {
+        "id": 5,
         "img": "https://storage.vsemayki.ru/images/0/2/2012/2012073/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "LIKEE GRADIENT",
         "type": "Детская футболка 3D",
@@ -46,6 +51,7 @@
         "sale": false
     },
     {
+        "id": 6,
         "img": "https://storage.vsemayki.ru/images/0/2/2021/2021385/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "BRAWL STARS LEON ОБОРОТЕНЬ.",
         "type": "Детская футболка 3D",
@@ -55,6 +61,7 @@
         "sale": false
     },
     {
+        "id": 7,
         "img": "https://storage.vsemayki.ru/images/0/1/1852/1852825/previews/people_13_manshortfull_front_white_250.jpg",
         "text": "Monsters Rick and Morty",
         "type": "Мужская футболка 3D",
@@ -64,6 +71,7 @@
         "sale": false
     },
     {
+        "id": 8,
         "img": "https://storage.vsemayki.ru/images/0/1/1461/1461081/previews/people_13_manshortfull_front_white_250.jpg",
         "text": "Самый лучший дед",
         "type": "Мужская футболка 3D",
@@ -73,6 +81,7 @@
         "sale": false
     },
     {
+        "id": 9,
         "img": "https://storage.vsemayki.ru/images/0/0/837/837811/previews/people_13_manshortfull_front_white_250.jpg",
         "text": "Главнокомандующий ДЕД",
         "type": "Мужская футболка 3D",
@@ -82,6 +91,7 @@
         "sale": true
     },
     {
+        "id": 10,
         "img": "https://storage.vsemayki.ru/images/0/2/2004/2004913/previews/people_8_child_tshirt_front_white_250.jpg",
         "text": "BRAWL STARS SALLY LEON.",
         "type": "Детская футболка 3D",
@@ -91,6 +101,7 @@
         "sale": true
     },
     {
+        "id": 11,
         "img": "https://storage.vsemayki.ru/images/0/1/1181/1181482/previews/people_13_manshortfull_front_white_250.jpg",
         "text": "Грозовой кошак",
         "type": "Мужская футболка 3D",

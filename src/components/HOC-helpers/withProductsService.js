@@ -8,11 +8,9 @@ const withProductsService = (mapMethodsToProps) => (Wrapped) => {
     return (
       <IShopConsumer>
         {
-          (productsService) => {
-            const serviceProps = mapMethodsToProps(productsService);
-
+          (productsService) => {            
             return (
-              <Wrapped {...props} {...serviceProps} />
+              <Wrapped {...props} productsService={productsService} />
             );
           }
         }

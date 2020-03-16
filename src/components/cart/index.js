@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import CartModal from './cartModal/';
+import {compose, withProductsService} from '../HOC-helpers';
+
 
 import './cart.sass'
 
 class Cart extends Component {
 
-    state = {
-        items:[
-            {
-                "img": "https://storage.vsemayki.ru/images/0/1/1960/1960261/previews/people_8_child_tshirt_front_white_250.jpg",
-                "text": "BRAWL STARS LEON SHARK",
-                "type": "Детская футболка 3D",
-                "price": "1535 руб.",
-                "popular": false,
-                "banner": false,
-                "sale": false,
-                "count": "1"
-            },{
-                "img": "https://storage.vsemayki.ru/images/0/1/1852/1852825/previews/people_13_manshortfull_front_white_250.jpg",
-                "text": "Monsters Rick and Morty",
-                "type": "Мужская футболка 3D",
-                "price": "1660 руб.",
-                "popular": false,
-                "banner": false,
-                "sale": true,
-                "count": "3"
-            }
-        ]
-    }
+    // state = {
+    //     items:[
+            
+    //     ],
+    //     isVisble: true
+    // }
 
     addItemHandle = (id) => {
         const arr = this.state.items;
@@ -57,6 +43,14 @@ class Cart extends Component {
         })
     }
 
+    cartHandle = () =>{
+        const isCartVisble = this.state.isVisble;
+        console.log(isCartVisble)
+        // this.setState({
+        //     isVisble: !isCartVisble
+        // })
+    } 
+
     fullCount = (arr) => {
         if(arr){
             let fullCount = 0;
@@ -79,18 +73,21 @@ class Cart extends Component {
         return null
     }
 
-    render() {
-    
-        const {items} = this.state;
-        const {img} = this.props;
-        const headerCounter = items ? <span className="header-navbar-controls__item-counter">{this.fullCount(items)}</span> : null
+    render() {    
+        const {img, cartItems} = this.props;
+        const headerCounter = cartItems ? <span className="header-navbar-controls__item-counter">{this.fullCount(cartItems)}</span> : null
         return (
-            <div className="cart">
-                <img src={img} alt="Cart"/>
-                <span className="header-navbar-controls__item-counter">{this.fullCount(items)}</span>
+            <div
+            onClick={this.cartHandle} 
+            className="cart"
+            >
+                <img                 
+                src={img} 
+                alt="Cart"/>
+                <span className="header-navbar-controls__item-counter">{this.fullCount(cartItems)}</span>
                 {headerCounter}
-                <CartModal
-                items={items}
+                <CartModal                
+                items={cartItems}
                 onAddItem={this.addItemHandle}
                 onRemoveItem={this.removeItemHandle}
                 onDeleteItem={this.deleteItemHandle}
@@ -102,4 +99,19 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+const mapStateToProps = ({ cartItems, loading, error }) => {
+    return { cartItems, loading, error };
+  };
+
+
+const mapDispatchToProps = (dispatch, { productsService }) => {
+    // return {
+    //   fetchItems: fetchItems(productsService, dispatch),
+    //   onAddedToCart: (id) => dispatch(itemAddedToCart(id))
+    // };
+  }; 
+
+export default compose(
+    withProductsService(),
+    connect(mapStateToProps, mapDispatchToProps))(Cart);
+
