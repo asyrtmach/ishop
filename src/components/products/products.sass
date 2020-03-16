@@ -1,3 +1,16 @@
+@keyframes filterAnimation
+    0%
+        opacity: 0
+    100%
+        opacity: 0.4
+
+@keyframes slideUp
+    0%
+        bottom: -99px
+    100%
+        bottom: 0
+        
+    
 .products
     &-footer
         width: 100%
@@ -31,7 +44,7 @@
             width: calc((100% - 90px) / 4)
             border: 1px solid #d3d3d3
             margin-bottom: 30px
-            cursor: pointer
+            overflow: hidden            
             &-img
                 position: relative
                 display: flex
@@ -51,12 +64,7 @@
                     border-radius: 5px
                 img                    
                     max-width: 100%
-                    transition: 0.3s
-            &:hover
-                .products-showcase__item-img
-                    img
-                        transform: scale(1.2)
-            
+                    transition: 0.3s           
             &-description
                 display: flex
                 flex-direction: column
@@ -82,6 +90,55 @@
                         font-weight: 600
                         font-size: 14px
                         color: #3853d8
+            &-cover
+                display: none               
+            &:hover
+                .products-showcase__item-cover
+                    position: absolute
+                    top: 0
+                    height: 100%
+                    width: 100%
+                    display: flex
+                    align-items: flex-end
+                    &-filter
+                        position: absolute
+                        z-index: 3
+                        height: 100%
+                        width: 100%
+                        background: #000
+                        opacity: 0.4
+                        animation: filterAnimation 0.5s
+                    &-controls
+                        position: relative
+                        bottom: 0
+                        z-index: 4
+                        height: 20%
+                        width: 100%
+                        background: #ffffff
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        animation: slideUp 0.3s
+                        &-btn
+                            padding: 7px 15px
+                            margin-right: 15px
+                            cursor: pointer
+                            color: #ffffff
+                            font-size: 12px
+                            font-size: 12px
+                            background-color: #3853d8
+                            border: 1px solid #3853d8
+                            box-shadow: 0 2px 20px rgba(56, 83, 216, 0.2)
+                            border-radius: 40px
+                            font-weight: 700
+                            transition: 0.5s
+                            &:last-child
+                                margin: 0
+                            &:hover
+                                background-color: #fff
+                                color:#3853d8
+                
+                
 
         &__item--banner
             border: none

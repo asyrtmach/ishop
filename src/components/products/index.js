@@ -92,6 +92,13 @@ class Products extends Component {
                                             }                                                                                     
                                         </div>
                                     </div>
+                                    <div className="products-showcase__item-cover">
+                                        <div className="products-showcase__item-cover-filter"></div>
+                                        <div className="products-showcase__item-cover-controls">
+                                            <button className="products-showcase__item-cover-controls-btn">Add to cart</button>
+                                            <button className="products-showcase__item-cover-controls-btn">Details</button>
+                                        </div>
+                                    </div>
                                 </div>
                             )
                         })

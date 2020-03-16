@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const PopularItem = (props) => {    
-    const {items:{img, date, title, comments, likes, id}} = props;
+    const {items:{img, date, title, comments, likes}, id} = props;
 
     return (        
         <div className="popular-carousel-body-showcase__item" key={id}>
