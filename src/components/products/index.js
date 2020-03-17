@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-import {fetchItems, itemAddedToCart} from '../../redux/actions/cartActions.js';
+import {fetchItems, itemAddedToCart, updateCart} from '../../redux/actions/cartActions.js';
 
 import {NextArrow, Fire} from '../svg';
 import RoundArrows from '../features/svg/ui.svg';
@@ -20,8 +20,23 @@ class Products extends Component {
         this.props.fetchItems();
     }
 
+    AddToCart = (items, id) => {
+        const {AddToCart, ReAddToCart} = this.props;
+        const itemId = id;      
+        if(items.find((item) => item.id === itemId)){
+            let newArr = items;
+            let existingItem = items.find((item) => item.id === itemId);
+            newArr[newArr.indexOf(existingItem)] = {
+              ...existingItem,
+              "count": +existingItem.count + 1
+            }            
+            return ReAddToCart(newArr);                                   
+          }
+          return AddToCart(itemId);
+    } 
+
     render() {
-               const {items, loading, error, onAddedToCart } = this.props;
+               const {items, cartItems, loading, error } = this.props;
         return (
             <section className="products">
                 <div className="container">
@@ -78,8 +93,8 @@ class Products extends Component {
                                     <div className="products-showcase__item-cover">
                                         <div className="products-showcase__item-cover-filter"></div>
                                         <div className="products-showcase__item-cover-controls">
-                                            <button 
-                                            onClick={() => onAddedToCart(item.id)}
+                                        <button 
+                                            onClick={() => this.AddToCart(cartItems,item.id)}
                                             className="products-showcase__item-cover-controls-btn">Add to cart</button>
                                             <button className="products-showcase__item-cover-controls-btn">Details</button>
                                         </div>
@@ -92,7 +107,7 @@ class Products extends Component {
                     <div className="products-footer">
                         <button
                         className="products-footer-btn"
-                        onClick={() => this.newItems(items)}
+                        onClick={() => {}}
                         >
                             <img src={RoundArrows} alt="RoundArrows"/>
                             load more
@@ -105,15 +120,16 @@ class Products extends Component {
 }
 
 
-const mapStateToProps = ({ items, loading, error }) => {
-    return { items, loading, error };
+const mapStateToProps = ({ items, loading, error, cartItems }) => {
+    return { items, loading, error, cartItems };
   };
 
 
 const mapDispatchToProps = (dispatch, { productsService }) => {
     return {
       fetchItems: fetchItems(productsService, dispatch),
-      onAddedToCart: (id) => dispatch(itemAddedToCart(id))
+      AddToCart: (id) => dispatch(itemAddedToCart(id)),
+      ReAddToCart: (items) => dispatch(updateCart(items))
     };
   }; 
 

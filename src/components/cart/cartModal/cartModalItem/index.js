@@ -9,7 +9,7 @@ class CartModalItem extends Component {
                     <img src={img} alt="cover" className="cart-modal-content-body__item-cover-img"/>
                 </div>
                 <span className="cart-modal-content-body__item-title">{text}</span>
-                <span className="cart-modal-content-body__item-price">{sale ? (parseInt(price)-(parseInt(price)*0.2)) : parseInt(price)} USD</span>
+                <span className="cart-modal-content-body__item-price">{sale ? ((parseInt(price)/10)-(parseInt(price)*0.02)) : (parseInt(price)/10)} USD</span>
                 <div className="cart-modal-content-body__item-controls">
                     <div className="cart-modal-content-body__item-controls-count">
                         <button 
@@ -20,7 +20,7 @@ class CartModalItem extends Component {
                         onClick={() => onAddItem(id)}
                         className="cart-modal-content-body__item-controls-count-btn">+</button>
                     </div>
-                    <span className="cart-modal-content-body__item-controls-sum">{sale ? ((parseInt(price)-(parseInt(price)*0.2))*count) : parseInt(price)*count} USD</span>
+                    <span className="cart-modal-content-body__item-controls-sum">{sale ? (((parseInt(price)/10)-(parseInt(price)*0.02))*count) : (parseInt(price)/10)*count} USD</span>
                     <button 
                     onClick={() => onDeleteItem(id)}
                     className="cart-modal-content-body__item-controls-delete">

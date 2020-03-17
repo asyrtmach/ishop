@@ -19,12 +19,33 @@ const itemsError = (error) => {
   };
 };
 
-const itemAddedToCart = (itemId) => {
+const itemAddedToCart = (id) => {
   return {
-    type: 'ITEM_ADDED_TO_CART',
-    payload: itemId
+    type: 'ADD_ITEM_TO_CART_ITEMS',
+    payload: id
   };
 };
+
+const updateCart = (items) => {
+  return {
+    type: 'UPDATE_CART_ITEMS',
+    payload: items
+  };
+};
+
+const handleCartPage = (id) => {
+  return {
+    type: 'HANDLE_CART_PAGE',
+    payload: id
+  }
+}
+
+const toggleCart = (cartVisible) => {
+  return {
+    type: 'TOGGLE_CART',
+    payload: cartVisible
+  }
+}
 
 const fetchItems = (productsService, dispatch) => () => {
   dispatch(itemsRequested());
@@ -35,5 +56,8 @@ const fetchItems = (productsService, dispatch) => () => {
 
 export {
   fetchItems,
-  itemAddedToCart
+  itemAddedToCart,
+  handleCartPage,
+  updateCart,
+  toggleCart
 };

@@ -9,6 +9,7 @@
     width: 700px
     border-radius: 5px
     padding: 30px
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
     &-content
         display: flex
         flex-direction: column
@@ -58,6 +59,21 @@
                         cursor: pointer
                 &:last-child
                     border: none
+
+            &-pagging
+                width: 100%
+                display: flex
+                justify-content: center
+                align-items: center
+                &-menu
+                    width: 40%
+                    display: flex
+                    justify-content: center
+                    margin-top: 10px
+                    &__item
+                        margin-right: 5px
+                        button
+                            cursor: pointer
         &-footer
             width: 100%
             margin-top: 20px

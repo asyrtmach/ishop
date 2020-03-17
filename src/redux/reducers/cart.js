@@ -3,8 +3,10 @@ const initialState = {
   loading: true,
   error: null,
   cartItems: [],
+  currentCartPage: 0,
   orderCount: 0,
-  orderTotal: 0
+  orderTotal: 0,
+  cartVisible: false
 };
 
 
@@ -35,7 +37,7 @@ const reducer = (state = initialState, action) => {
             error: action.payload
           };
     
-        case 'ITEM_ADDED_TO_CART':
+        case 'ADD_ITEM_TO_CART_ITEMS':
           const itemId = action.payload;
           const item = state.items.find((item) => item.id === itemId);
           const newItem = {
@@ -46,21 +48,7 @@ const reducer = (state = initialState, action) => {
               "price": item.price,
               "sale": item.sale,
               "count": "1"
-          };
-          if(state.cartItems.find((item) => item.id === itemId)){
-            let newArr = state.cartItems;
-            let existingItem = state.cartItems.find((item) => item.id === itemId);
-            newArr[newArr.indexOf(existingItem)] = {
-              ...existingItem,
-              "count": +existingItem.count + 1
-            }
-            return {
-              ...state,
-              cartItems: [
-                ...newArr
-              ]
-            };
-          }
+          };          
           return {
             ...state,
             cartItems: [
@@ -68,7 +56,23 @@ const reducer = (state = initialState, action) => {
               newItem
             ]
           };
-          
+          case 'UPDATE_CART_ITEMS':
+          return {
+            ...state,
+            cartItems: [
+              ...action.payload
+            ]            
+          };  
+          case 'HANDLE_CART_PAGE':
+          return {
+            ...state,
+            currentCartPage: action.payload
+          };
+          case 'TOGGLE_CART':
+            return {
+              ...state,
+              cartVisible: action.payload
+            }
     
         default:
           return state;      
