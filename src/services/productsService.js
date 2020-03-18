@@ -1,4 +1,4 @@
-import Goods from './items.json';
+import Goods from './products.json';
 
 class ProductsService{
     
@@ -15,7 +15,7 @@ class ProductsService{
         const arrLength = arr.length;
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            resolve(Goods.slice(arrLength,arrLength+4));
+            resolve(Goods.slice(0,arrLength+4));
           }, 700);
         });
       }

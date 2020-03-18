@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-import {fetchItems, itemAddedToCart, updateCart} from '../../redux/actions/cartActions.js';
+import {fetchItems,loadMore, itemAddedToCart, updateCart, itemsLoaded} from '../../redux/actions/cartActions.js';
 
 import {NextArrow, Fire} from '../svg';
 import RoundArrows from '../features/svg/ui.svg';
@@ -34,6 +34,12 @@ class Products extends Component {
           }
           return AddToCart(itemId);
     } 
+
+    loadMore = (arr) => {
+        const {loadMore} = this.props;
+        const newArr = arr;
+        return loadMore(newArr);
+    }
 
     render() {
                const {items, cartItems, loading, error } = this.props;
@@ -107,7 +113,7 @@ class Products extends Component {
                     <div className="products-footer">
                         <button
                         className="products-footer-btn"
-                        onClick={() => {}}
+                        onClick={() => this.loadMore(items)}
                         >
                             <img src={RoundArrows} alt="RoundArrows"/>
                             load more
@@ -128,6 +134,8 @@ const mapStateToProps = ({ items, loading, error, cartItems }) => {
 const mapDispatchToProps = (dispatch, { productsService }) => {
     return {
       fetchItems: fetchItems(productsService, dispatch),
+      loadMore: loadMore(productsService, dispatch),
+      itemsLoaded: (items) => dispatch(itemsLoaded(items)),
       AddToCart: (id) => dispatch(itemAddedToCart(id)),
       ReAddToCart: (items) => dispatch(updateCart(items))
     };

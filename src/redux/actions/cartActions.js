@@ -54,8 +54,17 @@ const fetchItems = (productsService, dispatch) => () => {
   .catch((err) => dispatch(itemsError(err)));
 }
 
+const loadMore = (productsService, dispatch) => (arr) => {
+  dispatch(itemsRequested());
+  productsService.loadMore(arr)
+  .then((data) => dispatch(itemsLoaded(data)))
+  .catch((err) => dispatch(itemsError(err)));
+}
+
 export {
   fetchItems,
+  itemsLoaded,
+  loadMore,
   itemAddedToCart,
   handleCartPage,
   updateCart,
