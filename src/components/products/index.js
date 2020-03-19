@@ -68,7 +68,7 @@ class Products extends Component {
                                             <span className="products-showcase__item--banner-newicon">New</span>
                                             <span className="products-showcase__item--banner-type">lifestyle</span>
                                             <span className="products-showcase__item--banner-nameplate">lifestyle New Now: Striped cotton</span>
-                                            <Link to="/detail" className="products-showcase__item--banner-buynow">
+                                            <Link to="/catalog" className="products-showcase__item--banner-buynow">
                                                 <span className="products-showcase__item--banner-buynow-price">$50.00 USD</span>
                                                 <span className="products-showcase__item--banner-buynow-text">buy now</span>
                                             </Link>
@@ -102,7 +102,9 @@ class Products extends Component {
                                         <button 
                                             onClick={() => this.AddToCart(cartItems,item.id)}
                                             className="products-showcase__item-cover-controls-btn">Add to cart</button>
-                                            <button className="products-showcase__item-cover-controls-btn">Details</button>
+                                            <Link to={`/detail/${item.id}`} className="products-showcase__item-cover-controls-btn">
+                                                Details
+                                            </Link>                                            
                                         </div>
                                     </div>
                                 </div>

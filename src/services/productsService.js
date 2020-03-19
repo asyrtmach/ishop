@@ -11,11 +11,20 @@ class ProductsService{
         });
       }
 
-      loadMore(arr) {
+      loadMore(arr) {        
         const arrLength = arr.length;
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve(Goods.slice(0,arrLength+4));
+          }, 700);
+        });
+      }
+
+      getDetailedItem(id) {      
+        const newArr = Goods.slice();
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(newArr.splice(id, 1));
           }, 700);
         });
       }

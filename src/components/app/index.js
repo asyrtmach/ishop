@@ -22,7 +22,7 @@ const App = () => {
                     <Router>
                         <Route path="/" component={HomePage} exact/>
                         <Route path="/catalog" component={CatalogPage} exact/>
-                        <Route path="/detail" component={DetailsPage} exact/>
+                        <Route path="/detail/:id?" component={DetailsPage} exact/>
                     </Router>
                 </IShopProvider>  
             </ErrorBoundry> 

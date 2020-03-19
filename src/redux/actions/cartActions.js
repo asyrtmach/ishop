@@ -47,6 +47,13 @@ const toggleCart = (cartVisible) => {
   }
 }
 
+const getDetailedItem = (productsService, dispatch) => (id) => {
+  dispatch(itemsRequested());
+  productsService.getDetailedItem(id)
+  .then((data) => dispatch(itemsLoaded(data)))
+  .catch((err) => dispatch(itemsError(err)));
+}
+
 const fetchItems = (productsService, dispatch) => () => {
   dispatch(itemsRequested());
   productsService.initialLoad()
@@ -64,6 +71,7 @@ const loadMore = (productsService, dispatch) => (arr) => {
 export {
   fetchItems,
   itemsLoaded,
+  getDetailedItem,
   loadMore,
   itemAddedToCart,
   handleCartPage,
